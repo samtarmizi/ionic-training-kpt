@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>posts-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="response">
+
+  <ion-card *ngFor="let post of response">
+    <ion-item>
+      <ion-icon name="pin" slot="start"></ion-icon>
+      <ion-label>{{ post.title}}</ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+
+    <ion-card-content>
+      {{post.body}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

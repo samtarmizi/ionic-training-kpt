@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>photos-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="response">
+
+  <ion-card *ngFor="let photo of response">
+    <img src="{{ photo.url }}" />
+    <ion-card-header>
+      <ion-card-title>{{ photo.title }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ion-content>
