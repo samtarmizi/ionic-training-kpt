@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +12,15 @@ export class LoginPage implements OnInit {
 
   request:any;
   response: any;
-  constructor(public api: ApiService, public router: Router) {
+  constructor(public api: ApiService, public router: Router, public storage:Storage) {
     this.request = {
       email : null,
       password : null
     }
    }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.storage.create();
   }
 
   login(){
@@ -32,6 +34,10 @@ export class LoginPage implements OnInit {
       alert(this.response.message)
 
       if(this.response.sucess){
+        this.storage.set('name', this.response.data.name)
+        this.storage.set('email', this.response.data.email)
+        this.storage.set('token', this.response.token)
+
         this.router.navigate(['/home']);
       }
     });

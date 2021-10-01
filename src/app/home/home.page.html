@@ -7,10 +7,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h1>This is H1 tag</h1>
-  <h4>This is H4 tag</h4>
+  <h1>Hello, {{ name }}!</h1>
 
-  <p>This is paragraph</p>
 
   <ion-card>
     <ion-card-header routerLink="/posts-list">Go to Posts List</ion-card-header>
@@ -21,5 +19,8 @@
   <ion-card>
     <ion-card-header routerLink="/welcome">Go to Welcome Page</ion-card-header>
   </ion-card>
+
+  <p>Email: {{ email }}</p>
+  <p>Token: {{ token }}</p>
 
 </ion-content>
